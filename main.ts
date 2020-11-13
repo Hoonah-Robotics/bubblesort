@@ -11,14 +11,14 @@ input.onButtonPressed(Button.B, function () {
     while (counter > 0) {
         counter = 0
         for (let index = 0; index <= 3; index++) {
-            comment.comment("test order: small, then big?")
+            comment.comment("test order: 1st smaller, 2nd bigger?")
             if (list[index] > list[index + 1]) {
                 comment.comment("order is reversed; flip positions!")
                 temp = list[index]
                 list[index] = list[index + 1]
                 list[index + 1] = temp
-                music.playTone(392, music.beat(BeatFraction.Quarter))
                 counter += 1
+                music.playTone(523, music.beat(BeatFraction.Quarter))
             } else {
                 comment.comment("order is correct!")
                 music.playTone(262, music.beat(BeatFraction.Quarter))
@@ -45,4 +45,5 @@ let counter = 0
 let list: number[] = []
 comment.comment("https://makecode.microbit.org/82555-58488-10353-21972")
 list = [4, 2, 5, 1, 3]
+music.setVolume(25)
 displayArray()
