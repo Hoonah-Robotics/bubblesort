@@ -15,11 +15,16 @@ input.onButtonPressed(Button.B, function () {
                 temp = list[index]
                 list[index] = list[index + 1]
                 list[index + 1] = temp
+                music.playTone(392, music.beat(BeatFraction.Quarter))
                 counter += 1
+            } else {
+                music.playTone(262, music.beat(BeatFraction.Quarter))
             }
+            displayArray()
+            basic.pause(100)
         }
     }
-    displayArray()
+    music.playMelody("C D E F G A B C5 ", 500)
 })
 function displayArray () {
     basic.clearScreen()
